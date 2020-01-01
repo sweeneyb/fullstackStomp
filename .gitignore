@@ -1,0 +1,9 @@
+fullstackGame/src/main/resources/static
+
+frontend/node_modules
+frontend/dist
+
+infra/docker/app.jar
+infra/ansible/inventory.txt
+
+gs-messaging-stomp-websocket

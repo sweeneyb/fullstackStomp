@@ -1,0 +1,27 @@
+---
+
+- name: Install a docker image as a service
+  gather_facts: true
+  hosts: all
+  tasks:
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars[inventory_hostname]
+
+    - name: Display the config
+      debug:
+        msg: "The hostname is {{ ansible_hostname }}."
+
+    - name: copy unit file
+      copy:
+        src: cloudservice.service
+        dest: /etc/systemd/system/cloudservice.service
+      become: true
+
+    - name: debug
+      systemd:
+        name: cloudservice
+        state: started
+        enabled: yes
+        daemon_reload: yes
+      become: true
