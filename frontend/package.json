@@ -10,11 +10,13 @@
   "dependencies": {
     "bootstrap": "^3.4.1",
     "core-js": "^3.4.3",
-    "jquery": "^3.4.1",
+    "jquery": ">=3.5.0",
     "sockjs-client": "^1.4.0",
     "vue": "^2.6.10",
     "vue-stomp": "0.0.5",
-    "webstomp-client": "^1.2.6"
+    "webstomp-client": "^1.2.6",
+    "websocket-extensions": ">=0.1.4",
+    "kind-of": ">=6.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -23,7 +25,9 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "minimist": ">=1.2.3",
+    "acorn": ">=6.4.1"
   },
   "eslintConfig": {
     "root": true,
