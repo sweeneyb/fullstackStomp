@@ -10,6 +10,7 @@ public class GameFactory {
 
     public enum GameType {
         STRING_APPENDING
+         // each GameType should have a create() method to return the actual game type
     }
 
     @Autowired

@@ -1,18 +1,19 @@
 package sweeneyb;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import sweeneyb.games.Game;
 import sweeneyb.games.GameFactory;
-import sweeneyb.games.StringAppendingGame;
 
 import java.util.HashMap;
 
 @Service
 public class GameWorkflowService {
 
+    static Logger logger = LoggerFactory.getLogger(GameWorkflowService.class);
     HashMap<String, Game> gameStates = new HashMap<>();
 
     @Autowired
@@ -34,7 +35,7 @@ public class GameWorkflowService {
     public void periodicVisitor() {
 
         gameStates.entrySet().stream().forEach( e -> {
-//            System.out.println("running periodic tasks for room "+ e.getKey());
+//            logger.info("running periodic tasks for room "+ e.getKey());
             e.getValue().periodicTask();
         });
     }
