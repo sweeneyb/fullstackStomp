@@ -101,7 +101,7 @@ export default {
       }
     },
     connect() {
-      this.socket = new SockJS("http://localhost:8080/gs-guide-websocket");
+      this.socket = new SockJS("/gs-guide-websocket");
       this.stompClient = Stomp.over(this.socket);
       this.stompClient.connect(
         {},
