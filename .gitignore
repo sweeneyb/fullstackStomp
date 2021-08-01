@@ -7,3 +7,6 @@ infra/docker/app.jar
 infra/ansible/inventory.txt
 
 gs-messaging-stomp-websocket
+
+.terraform*
+terraform.tfstate*
