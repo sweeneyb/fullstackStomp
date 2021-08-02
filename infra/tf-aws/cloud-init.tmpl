@@ -1,0 +1,18 @@
+#cloud-config
+packages:
+ - docker.io
+write_files:
+- path: /etc/systemd/system/app.service
+  permissions: 0644
+  owner: root
+  content: |
+    [Unit]
+    Description=app service
+    After=docker.socket docker-events-collector.service
+    Wants=docker.socket
+    [Service]
+    ExecStart=/usr/bin/docker run --rm --name=app -p 80:8080 ${image} 
+    ExecStop=/usr/bin/docker stop app 
+runcmd:
+- systemctl daemon-reload
+- systemctl start app.service
