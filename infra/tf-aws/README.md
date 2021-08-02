@@ -16,6 +16,15 @@ terraform plan -out tfplan
 ## <review plan>
 terraform apply tfplan
 ```
+After the run, you should have outputs like:
+```
+ami = "ami-05e1e66d082e56118"
+app_link = "http://ec2-xx-xx-xx-xx.eu-central-1.compute.amazonaws.com"
+public_dns = "ec2-xx-xx-xx-xx.eu-central-1.compute.amazonaws.com"
+public_ip = "xx-xx-xx-xx"
+```
+
+After a couple of minutes, the value at app_link should be available.
 
 ## About ##
 Being new to AWS, I made a few choices to make my life easier.  Running on Ubuntu 20.04 LTS eliminated a lot of unknowns about AMIs.  I know ubuntu machines support cloud-init, which makes provisioning without every logging onto the box possible.  Knowing that terraform and cloud-init work well together, I searched for an example of geting an EC2 instance up with a cloud-init script, and found https://learn.hashicorp.com/tutorials/terraform/cloud-init.  After working through a few small issues (I did provision some keys and log onto some instances to see how to make things work), the VM stands up, accepts traffic, and runs the application.
