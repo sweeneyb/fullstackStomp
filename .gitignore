@@ -10,3 +10,4 @@ gs-messaging-stomp-websocket
 
 .terraform*
 terraform.tfstate*
+tfplan
